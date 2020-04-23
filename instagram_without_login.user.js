@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         instagram without login
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.instagram.com/*
@@ -10,13 +10,15 @@
 
 (function() {
     'use strict';
-    if(! document.querySelector('[href*="/accounts/login"]')){
-        console.log('logged in');
-        return;
-    }
+
 
     // Your code here...
     function setOverFlow(){
+        if(! document.querySelector('[href*="/accounts/login"]')){
+            //console.log('logged in');
+            return;
+        }
+
         if(document.body.style.overflow == 'hidden'){
             document.body.style.overflow = '';
             console.log('remove overflow=hidden');
@@ -48,4 +50,5 @@
 
 
 })();
+
 
