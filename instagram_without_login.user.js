@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         instagram without login
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.instagram.com/*
@@ -16,6 +16,10 @@
     function setOverFlow(){
         if(! document.querySelector('[href*="/accounts/login"]')){
             //console.log('logged in');
+            return;
+        }
+
+        if(document.URL.indexOf('/p/') > -1){
             return;
         }
 
