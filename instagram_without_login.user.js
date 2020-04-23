@@ -10,6 +10,10 @@
 
 (function() {
     'use strict';
+    if(! document.querySelector('[href*="/accounts/login"]')){
+        console.log('logged in');
+        return;
+    }
 
     // Your code here...
     function setOverFlow(){
@@ -18,7 +22,8 @@
             console.log('remove overflow=hidden');
         }
 
-        const links = document.querySelectorAll('a[href^="/p/"]');
+        //const links = document.querySelectorAll('a[href^="/p/"]');
+        const links = document.querySelectorAll('a');
 
         links.forEach(
             function(e){
