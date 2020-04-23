@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         instagram without login
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.instagram.com/*
@@ -34,9 +34,15 @@
         links.forEach(
             function(e){
                 if(e._flag){return;}
-                e.onclick = function(){
-                    open(e.href);
-                };
+                if(e.href.indexOf('/p/') > -1){
+                    e.onclick = function(){
+                        open(e.href);
+                    };
+                }else{
+                    e.onclick = function(){
+                        location.href = e.href;
+                    };
+                }
                 e._flag = true;
             }
         );
