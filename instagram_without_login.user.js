@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         instagram without login
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.instagram.com/*
@@ -55,7 +55,7 @@
     document.body.onmouseover = setOverFlow;
 
     const _style = document.createElement('style');
-    _style.innerHTML = 'div[role="presentation"]{display:none}';
+    _style.innerHTML = 'body > div[role="presentation"]{display:none}';
     document.head.appendChild(_style);
 
 
